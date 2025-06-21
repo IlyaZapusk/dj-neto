@@ -1,0 +1,22 @@
+# Python
+*.pyc
+__pycache__/
+
+# Django
+*.sqlite3
+media/
+db.sqlite3
+*.log
+
+# Virtualenv
+venv/
+.env/
+
+# IDE/OS
+.idea/
+.vscode/
+.DS_Store
+
+# Migrations (по желанию)
+**/migrations/__pycache__/
+**/migrations/*.pyc
