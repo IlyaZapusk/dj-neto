@@ -28,3 +28,24 @@ DATA = {
 #     'ингредиент2': количество2,
 #   }
 # }
+from django.views import View
+from django.http import JsonResponse, HttpResponse
+
+
+def recipe_view(request, dish):
+    servings = request.GET.get('servings', 1)
+    try:
+        servings = int(servings)
+    except ValueError:
+        servings = 1  # Защита от неправильного ввода
+
+    recipe = DATA.get(dish)
+    if recipe is None:
+        return HttpResponse(f"Рецепт '{dish}' не найден.", status=404)
+
+    scaled_recipe = {ingredient: round(quantity * servings, 2) for ingredient, quantity in recipe.items()}
+
+    context = {
+        'recipe': scaled_recipe
+    }
+    return render(request, 'calculator/index.html', context)

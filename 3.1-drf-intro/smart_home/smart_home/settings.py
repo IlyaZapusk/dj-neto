@@ -81,10 +81,15 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'netology_smart_home',
+        'USER': 'postgres',
+        'PASSWORD': 'Vorobey120800',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 
 # Password validation
