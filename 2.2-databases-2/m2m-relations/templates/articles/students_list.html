@@ -1,0 +1,14 @@
+<h1>Список учеников и их учителей</h1>
+
+{% for student in students %}
+  <div>
+    <h3>{{ student.name }}</h3>
+    <ul>
+      {% for teacher in student.teachers.all %}
+        <li>{{ teacher.name }} — {{ teacher.subject }}</li>
+      {% empty %}
+        <li>Нет учителей</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endfor %}
