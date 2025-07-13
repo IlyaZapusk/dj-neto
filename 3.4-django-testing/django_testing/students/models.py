@@ -12,6 +12,7 @@ class Student(models.Model):
 
 class Course(models.Model):
 
+    objects = None
     name = models.TextField()
 
     students = models.ManyToManyField(
